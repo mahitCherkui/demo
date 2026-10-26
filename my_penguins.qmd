@@ -1,0 +1,20 @@
+---
+title: "My Penguins"
+format: html
+---
+
+```{r}
+#| label: setup
+#| message: false
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## Average bill length by species
+
+```{r}
+#| label: summary-table
+penguins |>
+  group_by(species) |>
+  summarize(avg_bill_length_mm = mean(bill_length_mm, na.rm = TRUE))
+```
